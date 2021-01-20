@@ -31,8 +31,16 @@ const styles = StyleSheet.create({
     inputContainer: {
         width: 300,
         maxWidth: "80%",
-        alignItems: 'center'
-    },
+        alignItems: 'center',
+        shadowColor: 'black',
+        shadowOffset: {with: 0, height: 2},
+        shadowRadius: 6,
+        shadowOpacity: 0.26,
+        elevation: 8, //works only for turing on shadwo properties for android other they will workss for IOS
+        backgroundColor: 'white',
+        padding: 20,
+        borderRadius: 10
+        },
     buttonContainer: {
         flexDirection: 'row',
         width: "100%",
