@@ -1,19 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
-
+import Card from '../components/Card';
 
 const StartGameScreen = props => {
     return (
         <View style={styles.screen}>
             <Text>Start a New Game!</Text>
-            <View style={styles.inputContainer}>
+            <Card style={styles.inputContainer}>
                 <Text style={styles.title}>Select a Number</Text>
                 <TextInput />
                 <View style={styles.buttonContainer}>
                     <Button title="Reset" onPress={() => {}} />
                     <Button title="Confirm" onPress={() => {}}/>
                 </View>
-            </View>
+            </Card>
         </View>
     )
 }
@@ -32,14 +32,6 @@ const styles = StyleSheet.create({
         width: 300,
         maxWidth: "80%",
         alignItems: 'center',
-        shadowColor: 'black',
-        shadowOffset: {with: 0, height: 2},
-        shadowRadius: 6,
-        shadowOpacity: 0.26,
-        elevation: 8, //works only for turing on shadwo properties for android other they will workss for IOS
-        backgroundColor: 'white',
-        padding: 20,
-        borderRadius: 10
         },
     buttonContainer: {
         flexDirection: 'row',
