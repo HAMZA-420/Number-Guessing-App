@@ -4,6 +4,7 @@ import Card from '../components/Card';
 import Colors from '../constants/colors';
 import Input from  '../components/input';
 import NumberContainer from '../components/Number';
+import DefaultStyles from '../constants/default-styles';
 
 const StartGameScreen = props => {
 
@@ -35,7 +36,7 @@ const StartGameScreen = props => {
     if(confirmed) {
         confirmedOutput = 
         <Card style={styles.summaryContainer}>
-        <Text>You selected</Text>
+        <Text style= {DefaultStyles.bodyText}>You selected</Text>
         <NumberContainer>
             {selectedNumber}
         </NumberContainer>
@@ -49,7 +50,7 @@ const StartGameScreen = props => {
             Keyboard.dismiss();
         }}>
         <View style={styles.screen}>
-            <Text>Start a New Game!</Text>
+            <Text style={DefaultStyles.title}>Start a New Game!</Text>
             <Card style={styles.inputContainer}>
                 <Text style={styles.title}>Select a Number</Text>
                 <Input 
@@ -85,6 +86,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         marginVertical: 10,
+        fontFamily: 'open-sans-bold'
     },
     inputContainer: {
         width: 300,
