@@ -4,14 +4,14 @@ import NumberContainer from '../components/Number';
 import Card from '../components/Card';
 import DeafultStyles from '../constants/default-styles';
 import MainButton from '../components/MainButton';
+import {Ionicons} from '@expo/vector-icons';
 
-
-const generatRandomBetween = (min, max, exclude) => {
+const generateRandomBetween = (min, max, exclude) => {
     min = Math.ceil(min);
     max = Math.floor(max);
     const rndNum = Math.floor(Math.random() * (max - min)) + min;
     if(rndNum === exclude) {
-        return generatRandomBetween(min, max, exclude);
+        return generateRandomBetween(min, max, exclude);
     }
     else {
         return rndNum;
@@ -21,7 +21,7 @@ const generatRandomBetween = (min, max, exclude) => {
 
 
 const GameScreen = props => {
-    const[currentGuess, setCurrentGuess] = useState(generatRandomBetween(1,100,props.userChoice));
+    const[currentGuess, setCurrentGuess] = useState(generateRandomBetween(1,100,props.userChoice));
 
     const currentLow = useRef(1);
     const currentHigh = useRef(100);
@@ -45,7 +45,7 @@ const GameScreen = props => {
         } else {
             currentLow.current = currentGuess;
         }
-        const nextNumber = generatRandomBetween(currentLow.current, currentHigh.current, currentGuess);
+        const nextNumber = generateRandomBetween(currentLow.current, currentHigh.current, currentGuess);
         setCurrentGuess(nextNumber);
         setRounds(curRounds => curRounds + 1)
     };
@@ -57,10 +57,11 @@ const GameScreen = props => {
             </NumberContainer>
             <Card style={styles.buttonContainer}>
                 <MainButton  onPress={nextGuessHandler.bind(this, 'lower')} >
-                    LOWER
+                    <Ionicons name="md-remove" size={24} color="white"/>
                     </MainButton>
                 <MainButton  onPress={nextGuessHandler.bind(this, 'greater')}>
-                    GREATER
+                <Ionicons name="md-add" size={24} color="white"/>
+
                     </MainButton>
             </Card>
 
