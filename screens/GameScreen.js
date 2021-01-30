@@ -1,5 +1,5 @@
 import React, { useState ,useRef, useEffect} from 'react';
-import { Button, StyleSheet, Text, View, Alert,ScrollView } from 'react-native';
+import { Button, StyleSheet, Text, View, Alert,ScrollView,FlatList } from 'react-native';
 import NumberContainer from '../components/Number';
 import Card from '../components/Card';
 import DefaultStyles from '../constants/default-styles';
@@ -32,10 +32,10 @@ const GameScreen = props => {
 
     useEffect(() => {
 
-        if(currentGuess === props.userChoice) {
-            props.onGameOver(pastGuesses);
+        if(currentGuess === userChoice) {
+            onGameOver(pastGuesses);
         }
-    }, [currentGuess, props]);
+    }, [currentGuess, props, onGameOver]);
 
     const nextGuessHandler = direction => {
         if((direction === 'lower' && currentGuess < props.userChoice) || (direction == 'greater' && currentGuess>props.userChoice)) {
